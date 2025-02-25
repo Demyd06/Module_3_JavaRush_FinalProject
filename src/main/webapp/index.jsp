@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Ласкаво просимо у текстовий квест!</h1>
-<form action="quest" method="post">
+<form action="QuestServlet" method="post">
     <button type="submit">Почати гру</button>
 </form>
 </body>

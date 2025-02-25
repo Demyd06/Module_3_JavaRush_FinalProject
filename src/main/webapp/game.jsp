@@ -6,24 +6,23 @@
 %>
 <html>
 <head>
-    <title>Quest</title>
+    <title>Гра</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-<body>
-<h2>Твій вибір:</h2>
-<% if (state.getCurrentStep().equals("start")) { %>
-<p>Ти прокинувся у темному місті. Куди підеш?</p>
-<form action="quest" method="post">
-    <button type="submit" name="choice" value="A">Магазин</button>
-    <button type="submit" name="choice" value="B">Алея</button>
+<body class="container mt-5">
+<h2 class="mb-4">Квест</h2>
+<p class="lead"><%= state.getCurrentText() %></p>
+
+<form action="QuestServlet" method="post" class="mt-3">
+    <button type="submit" name="choice" value="1" class="btn btn-success">Варіант 1</button>
+    <button type="submit" name="choice" value="2" class="btn btn-danger">Варіант 2</button>
 </form>
-<% } else if (state.getCurrentStep().equals("shop")) { %>
-<p>Ти у магазині. Далі?</p>
-<form action="quest" method="post">
-    <button type="submit" name="choice" value="A">Метро</button>
-    <button type="submit" name="choice" value="B">Поліція</button>
+<% if (state.isGameOver()) { %>
+<h2>Гра завершена!</h2>
+<form action="restart" method="post">
+    <button type="submit">Почати заново</button>
 </form>
-<% } else { %>
-<p>Ти йдеш далі...</p>
 <% } %>
+<a href="history.jsp" class="btn btn-secondary mt-3">Переглянути історію</a>
 </body>
 </html>
