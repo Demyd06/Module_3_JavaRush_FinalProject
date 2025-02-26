@@ -16,7 +16,7 @@
 </head>
 <body>
 <h2><%= state.getResult() %></h2>
-<form action="index.jsp">
+<form action="game.jsp">
     <button type="submit">Почати спочатку</button>
 </form>
 </body>

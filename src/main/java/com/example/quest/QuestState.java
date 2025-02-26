@@ -111,8 +111,7 @@ public class QuestState implements Serializable {
                 return "Ви знайшли скарб! Вітаємо!";
             case "monster":
                 return "Монстр з'їв вас! Гра закінчена.";
-            default:
-                return "Гра завершена!";
         }
+        return "Гра завершена!";
     }
 }
