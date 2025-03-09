@@ -16,7 +16,7 @@ public class RestartServlet extends HttpServlet {
         // Очищаємо лише стан гри, але залишаємо історію і статистику
         session.removeAttribute("questState");
 
-        response.sendRedirect("game.jsp");
+        response.sendRedirect("index.jsp");
     }
 }
 

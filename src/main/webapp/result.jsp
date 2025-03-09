@@ -13,10 +13,20 @@
 <html>
 <head>
     <title>Результат</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?forest,mystery') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            font-family: 'Georgia', serif;
+            background-color: dimgrey;
+        }
+    </style>
 </head>
 <body>
 <h2><%= state.getResult() %></h2>
-<form action="game.jsp">
+<form action="index.jsp">
     <button type="submit">Почати спочатку</button>
 </form>
 </body>
