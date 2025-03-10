@@ -43,7 +43,7 @@ public class QuestState implements Serializable {
         return "Win".equalsIgnoreCase(resultHistory);
     }
 
-    // Метод для обробки вибору гравця
+    // Variants who pick player
     public void processChoice(String choice) {
         if (gameOver) return;
 
@@ -126,7 +126,7 @@ public class QuestState implements Serializable {
         }
     }
 
-    // Метод для отримання поточного тексту
+    // Give Text
     public String getCurrentText() {
         switch (currentStep) {
             case "start":

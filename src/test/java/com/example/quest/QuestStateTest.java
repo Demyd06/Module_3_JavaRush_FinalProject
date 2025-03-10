@@ -7,38 +7,52 @@ import static org.junit.jupiter.api.Assertions.*;
 class QuestStateTest {
 
     @Test
-    void getCurrentStep() {
+    void testInitialState() {
+        QuestState state = new QuestState();
+
+        assertEquals("start", state.getCurrentStep());
+        assertFalse(state.isGameOver());
     }
 
     @Test
-    void setCurrentStep() {
+    void testChoiceToForest() {
+        QuestState state = new QuestState();
+
+        state.processChoice("1");
+
+        assertEquals("forest", state.getCurrentStep());
+        assertFalse(state.isGameOver());
     }
 
     @Test
-    void isGameOver() {
+    void testChoiceToCave() {
+        QuestState state = new QuestState();
+
+        state.processChoice("2");
+
+        assertEquals("cave", state.getCurrentStep());
+        assertFalse(state.isGameOver());
     }
 
     @Test
-    void setGameOver() {
+    void testWinningPath() {
+        QuestState state = new QuestState();
+        state.setCurrentStep("right_cave");
+
+        state.processChoice("2"); //Win
+
+        assertTrue(state.isGameOver());
+        assertEquals("\uD83C\uDFC6 Ви знайшли скарб! Перемога!", state.getResult());
     }
 
     @Test
-    void getResult() {
-    }
+    void testLosingPath() {
+        QuestState state = new QuestState();
+        state.setCurrentStep("right_cave");
 
-    @Test
-    void setResult() {
-    }
+        state.processChoice("1"); // Losses
 
-    @Test
-    void isWin() {
-    }
-
-    @Test
-    void processChoice() {
-    }
-
-    @Test
-    void getCurrentText() {
+        assertTrue(state.isGameOver());
+        assertEquals("❌ Дракон охороняє ворота! Поразка!", state.getResult());
     }
 }
